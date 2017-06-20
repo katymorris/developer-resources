@@ -69,16 +69,11 @@ var ListingContainer = React.createClass({
 		    		}
 		    	}
 		    }
-	      	th.setState({
-	        	categories[i] =  
-	        				[
-	        					{[categoryName]: {
-	        						"cat": categories[i].name,
-	        						"listings": matchingPosts
-	        					}}
-	        				]
-	        				
-	      	});
+		    var newItem = {[categoryName]: {
+	    					"cat": categories[i].name,
+	    					"listings": matchingPosts
+	    				  }}
+		    th.state.categories.push(newItem)
 	      }
 	  });
     });
@@ -90,36 +85,37 @@ var ListingContainer = React.createClass({
 
   render: function render() {
   	console.log("this state")
-    console.log(this.state)
+    console.log(this.state.categories)
     return React.createElement(
-      "div", { className: "item-wrapper"}, this.state.categories.cat
-
-	        // return React.createElement(
-	        // "div",
-	        //   { className: "wrapper" },
-	        //   React.createElement(
-	        //     "div",
-	        //     { className: "container" },
-	        //     React.createElement(
-	        //       "h4",
-	        //       { className: "post-title" },
-	        //       React.createElement("a", { href: category.acf.resource_link,
-	        //         dangerouslySetInnerHTML: { __html: category.acf.name }
-	        //       })
-	        //     ),
-	        //     React.createElement(
-	        //       "div",
-	        //       { key: category.acf.content, className: "post-content" },
-	        //         React.createElement("p", {}, category.acf.resource_content)
-	        //     ),
-	        //     React.createElement(
-	        //       "div",
-	        //       { className: "push" },
-	        //         React.createElement("div", {})
-	        //     )
-	        //   )
-	        // )
-
+      "div", { className: "item-wrapper"}, 
+      this.state.categories.map(function (category, i) {
+      	console.log(category[i])
+	    return React.createElement(
+	        "div",
+	          { className: "wrapper" },
+	          React.createElement(
+	            "div",
+	            { className: "container" },
+	            React.createElement(
+	              "h4",
+	              { className: "post-title" },
+	              React.createElement("a", { href: category.acf.resource_link,
+	                dangerouslySetInnerHTML: { __html: category.acf.name }
+	              })
+	            ),
+	            React.createElement(
+	              "div",
+	              { key: category.acf.content, className: "post-content" },
+	                React.createElement("p", {}, category.acf.resource_content)
+	            ),
+	            React.createElement(
+	              "div",
+	              { className: "push" },
+	                React.createElement("div", {})
+	            )
+	          )
+	        )
+	  })
     );
   }
 
