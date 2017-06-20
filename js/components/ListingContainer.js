@@ -27,8 +27,6 @@ var ListingContainer = React.createClass({
   // 	},
   componentWillMount: function componentWillMount() {
  	var th = this;
-    console.log("this state from mount")
-    console.log(this.state.categories)
     this.serverRequest = axios.get(this.props.categories).then(function (result) {
       var categories = result.data
    	  //loop through each category type - make state for each
@@ -39,24 +37,25 @@ var ListingContainer = React.createClass({
 	  th.serverRequest = axios.get(th.props.posts).then(function (result) {
 	  	posts = result.data
 		for (var i = 0; i < categories.length; i++) {
-	
-			var categoryName = "cat_" + i;
-		  	//loop through all posts to check if this category num matches any of post nums
-		  	for (var j = 0; j < posts.length; j++) {
-		  		//for each post, loop through the tagged categories for that post and see if any match
-		    	for (var k = 0; k < posts[j].categories.length; k++) {
-		    		if (posts[j].categories[k] == categories[i].id) {
-		    			matchingPosts.push(posts[j]);
+			if (categories[i].name != "Uncategorized") {
+				var categoryName = "cat_" + i;
+			  	//loop through all posts to check if this category num matches any of post nums
+			  	for (var j = 0; j < posts.length; j++) {
+			  		//for each post, loop through the tagged categories for that post and see if any match
+			    	for (var k = 0; k < posts[j].categories.length; k++) {
+			    		if (posts[j].categories[k] == categories[i].id) {
+			    			matchingPosts.push(posts[j]);
 
-		    		}
-		    	}
+			    		}
+			    	}
+			    }
+			    var newItem =  {
+		    					"cat": categories[i].name,
+		    					"listings": matchingPosts
+		    				  }
+			    tempArray.push(newItem)
+			    matchingPosts = [];
 		    }
-		    var newItem =  {
-	    					"cat": categories[i].name,
-	    					"listings": matchingPosts
-	    				  }
-		    tempArray.push(newItem)
-		    matchingPosts = [];
 	      }
 	      
 	      th.setState(function(state) {
@@ -76,9 +75,6 @@ var ListingContainer = React.createClass({
   },
 
   render: function render() {
-  	console.log("this state from render")
-    console.log(this.state.categories)
-
     return React.createElement(
       "div", { className: "wrapper item-wrapper"}, 
 	      React.createElement(
@@ -97,8 +93,14 @@ var ListingContainer = React.createClass({
 					    		return React.createElement(
 					    			"div", {className: "listing-type-container"},
 					    			React.createElement(
+					    				"img", {src: listing.acf.photo.url, className: "post-image"}
+					    			),
+					    			React.createElement(
 					    				"h3", {className: "post-title"},
 					    				listing.acf.name
+					    			),
+					    			React.createElement(
+					    				"div", {className: "push"}
 					    			),
 					    			React.createElement(
 					    				"p", {className: "post-content"},

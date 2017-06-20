@@ -244,11 +244,18 @@ h4 {
 		.item-wrapper .wrapper:last-child {
 			border-bottom: 1px solid lightgray;
 		}
-.skill-wrapper {
-	background-color: #434371;
+.section-type {
+	background-color: #fafafa;
+}
+.listing-type-container {
+	border-top: 1px solid lightgray;
 }
 .post-title {
-	float: left;
+	float: right;
+}
+.post-image {
+	height: 200px;
+    width: 200px;
 }
 .post-content {
 	float: right;
