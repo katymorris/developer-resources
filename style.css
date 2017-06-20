@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+/*  
+Theme Name: Web_Developer_Resources
+Theme URI: 
+Description: This is my theme.
+Version: 1.0
+Author: Katy Morris
+Author URI: www.selftaughtwebdevelopers.com
+
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*LOADER*/
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotating {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.placeholder {
+  position: relative;
+  height: 100%;
+}
+.placeholder .loading-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: solid 4px white;
+  background-color: transparent;
+  border-right-color: #6290C3;
+  -webkit-animation: rotating 0.8s linear infinite;
+  -moz-animation: rotating 0.8s linear infinite;
+  animation: rotating 0.8s linear infinite;
+  z-index: 7
+}
+
+/*-----GENERAL STYLES-----*/
+a {
+	color: white;
+	text-decoration: none;
+}
+body {
+	background-color: #FFFFFF;
+	font-family: arial;
+	/*line-height: 1.3em;*/
+}
+h1 {
+	font-size: 35px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 24px;
+}
+h4 {
+	font-size: 22px;
+}
+.wrapper {
+	width: 100%;
+}
+.container {
+	width: 1170px;
+	margin: 0 auto;
+}
+.push {
+	clear: both;
+}
+.loading-screen {
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+.page-title, .page-title-sub {
+	font-size: 40px;
+	float: left;
+}
+.page-title {
+	margin-bottom: 10px;
+}
+/*NAV BAR*/
+.nav-wrapper {
+	background-color: #303030;
+	color: white;
+}
+	.nav-wrapper ul {
+		float: right;
+	}
+		.nav-wrapper a {
+			display: inline-block;
+			margin-right: 20px;
+			font-size: 20px;
+		}
+.nav-container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+/*--------HOME PAGE--------*/
+.home-wrapper {
+	position: relative;
+}
+#main-img {
+	width: 100%;
+	background-size: cover;
+	background-image: url("images/wood-coffee-macbook.jpg");
+}
+#main-img-overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: .6;
+	top: 0px;
+	left: 0px;
+}
+#resource-box-container {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -476px;
+	margin-top: -114px;
+}
+#resource-box-container a {
+	color: black;
+	margin-right: 20px;
+}
+.resource-box {
+	display: inline-block;
+	width: 400px;
+	background-color: white;
+    border: 2px solid #32746D;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 25px;
+}
+	.resource-box:last-child {
+		margin-right: 0px;
+	}
+/* ---------- FRONT END PAGE ---------- */ 
+.title-wrapper {
+	background-color: #6290C3;
+}
+.listing-wrapper a {
+	color: black;
+}
+.listing-wrapper h1 {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+.listing-wrapper h2 {
+	padding-top: 40px;
+	padding-bottom: 40px;
+} 
+.listing-wrapper h3 {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+	.item-wrapper .wrapper {
+		border-top: 1px solid lightgray;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+		.item-wrapper .wrapper:last-child {
+			border-bottom: 1px solid lightgray;
+		}
+.skill-wrapper {
+	background-color: #434371;
+}
+.post-title {
+	float: left;
+}
+.post-content {
+	float: right;
+}
+/* ---------- RETINA QUERIES ---------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+
+
+
+}
+/* ---------- MEDIA QUERIES ---------- */ 
+@media (max-width: 1200px) {
+	.container {
+		width: 980px;
+	 }
+}
+@media (max-width: 980px) {
+	.container {
+		width: 767px;
+	 }
+}
+@media (max-width: 767px) {
+  	.container {
+	    box-sizing: border-box;
+	    width: 100%;
+	    padding-left: 15px;
+	    padding-right: 15px;
+ 	}
+}
+@media (max-width: 480px) {
+
+}
